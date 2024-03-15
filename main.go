@@ -24,6 +24,7 @@ func Parse(text string) string {
 		defaults.Bold,
 		defaults.Italic,
 		defaults.Anchor,
+		defaults.List,
 	}
 
 	for i := 0; i < len(pls); i++ {
@@ -44,7 +45,7 @@ func main() {
 	}
 	str, err := os.ReadFile(os.Args[1])
 	if err != nil {
-		return
+		println("Error in file read")
 	}
 	fmt.Println(Parse(string(str)))
 }
