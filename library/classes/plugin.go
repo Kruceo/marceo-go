@@ -1,7 +1,6 @@
-package pl
+package classes
 
 import (
-	"errors"
 	"regexp"
 	"strconv"
 	"strings"
@@ -19,19 +18,22 @@ type Plugin struct {
 	PluginOptions PluginOptions
 }
 
-func NewPlugin(name string, regex regexp.Regexp, elHandler func(s string, c string, e string) string, pluginOptions PluginOptions) (Plugin, error) {
-
-	if regex.NumSubexp() < 3 {
-		return Plugin{}, errors.New("A plugin need 3 regexp groups. Pl: " + name + ".")
+func NewPlugin(name string, regex regexp.Regexp, elHandler func(s string, c string, e string) string, pluginOptions PluginOptions) Plugin {
+	regGrpNum := regex.NumSubexp()
+	if regGrpNum < 3 {
+		regStr := regex.String()
+		for i := 0; i < 3-regGrpNum; i++ {
+			regStr += "()"
+		}
+		regex = *regexp.MustCompile(regStr)
 	}
-
 	return Plugin{
 		Name:          name,
 		mem:           make(map[string][]string),
 		Regex:         regex,
 		Handler:       elHandler,
 		PluginOptions: pluginOptions,
-	}, nil
+	}
 }
 
 func (p *Plugin) SinalizeText(text string) string {
