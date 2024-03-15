@@ -17,6 +17,8 @@ var DefaultPack = classes.NewPack(
 	plugins.ItalicBold,
 	plugins.Bold,
 	plugins.Italic,
+	plugins.Italic2,
 	plugins.Anchor,
 	plugins.List,
+	plugins.Table,
 )

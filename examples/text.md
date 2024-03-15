@@ -37,4 +37,3 @@ We welcome contributions from the community. If you find issues or have ideas fo
 
 - [Website](https://kruceo.com)
 - [Donations](https://kruceo.com/donate)
-
