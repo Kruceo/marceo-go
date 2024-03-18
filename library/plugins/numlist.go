@@ -26,7 +26,7 @@ func numlistHandler(s, c, e string) string {
 		acum += "<li>" + values[0] + "</li>"
 
 		if len(values) > 1 && numlistRegex.MatchString(values[1]) {
-			acum += "\n\n<li>"
+			acum += "<li>"
 			newValueSplited := strings.Split(values[1], "\n")
 			newValue := ""
 
@@ -35,7 +35,7 @@ func numlistHandler(s, c, e string) string {
 				newValue += xres + "\n"
 			}
 			acum += numlistHandler("", newValue, "")
-			acum += "</li>\n\n"
+			acum += "</li>"
 		}
 	}
 	acum += "</ol>"
