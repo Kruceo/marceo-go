@@ -59,4 +59,4 @@ var tableHandler func(s, c, e string) string = func(s, c, e string) string {
 	return "<table><thead>" + headerAcum + "</thead>\n<tbody>" + bodyAcum + "</tbody></table>"
 }
 
-var Table = classes.NewPlugin("anchor", *tableRegex, tableHandler, classes.PluginOptions{})
+var Table = classes.NewPlugin("table", *tableRegex, tableHandler, classes.PluginOptions{})

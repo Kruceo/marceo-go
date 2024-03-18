@@ -21,4 +21,6 @@ var DefaultPack = classes.NewPack(
 	plugins.Anchor,
 	plugins.List,
 	plugins.Table,
+	plugins.Strike,
+	plugins.NumList,
 )
