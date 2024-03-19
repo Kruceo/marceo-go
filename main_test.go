@@ -1,15 +1,17 @@
 package main
 
 import (
-	"marceo/library/plugins"
+	"log"
+	"marceo/library/packs"
+	"os"
 	"testing"
 )
 
 func TestVas(t *testing.T) {
-	// var pack = classes.NewPack(plugins.Table)
-	pl := plugins.Table
-	res := pl.SinalizeText("\n|header|header|\n|----|----|\n|value|value|\n\n\n\n|header2|header2|\n|------|---|\n|2|2|\n\n\n")
-	res = pl.ReplaceText(res)
-
-	println(res)
+	var pack = packs.DefaultPack
+	file, err := os.ReadFile("./examples/big.md")
+	if err != nil {
+		log.Fatal(err)
+	}
+	println(pack.Parse(string(file)))
 }

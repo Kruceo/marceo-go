@@ -6,8 +6,8 @@ import (
 )
 
 var DefaultPack = classes.NewPack(
-	plugins.CodeBlock,
 	plugins.CodeLine,
+	plugins.CodeBlock,
 	plugins.Header6,
 	plugins.Header5,
 	plugins.Header4,

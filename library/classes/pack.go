@@ -1,5 +1,7 @@
 package classes
 
+import "sort"
+
 type Pack struct {
 	plugins []Plugin
 }
@@ -19,5 +21,8 @@ func (p Pack) Parse(text string) string {
 }
 
 func NewPack(pls ...Plugin) Pack {
+	sort.Slice(pls, func(i, j int) bool {
+		return pls[i].PluginOptions.HideContent
+	})
 	return Pack{plugins: pls}
 }

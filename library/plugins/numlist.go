@@ -16,13 +16,6 @@ func numlistHandler(s, c, e string) string {
 	for _, v := range splited {
 		values := strings.SplitN(v, "\n", 2)
 
-		// if len(values) > 1 && values[1] != nil && numlistRegex.MatchString(values[1]) {
-		// println("#------")
-		// v = strings.TrimSpace(v)
-		// acum += numlistHandler("", strings.TrimPrefix(v, " "), "")
-		// continue
-		// }
-
 		acum += "<li>" + values[0] + "</li>"
 
 		if len(values) > 1 && numlistRegex.MatchString(values[1]) {

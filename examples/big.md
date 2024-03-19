@@ -28,6 +28,16 @@
 4. teste 4
 5. teste 5
 6. teste 6
+
+# CodeBlock
+
+```javascript
+const res = 1 + 4
+if(res != 4){
+    alert("ERROR")
+}
+```
+
 </body>
 
 </html>
