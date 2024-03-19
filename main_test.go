@@ -2,9 +2,10 @@ package main
 
 import (
 	"log"
-	"marceo/library/packs"
 	"os"
 	"testing"
+
+	"github.com/kruceo/marceo-go/library/packs"
 )
 
 func TestVas(t *testing.T) {

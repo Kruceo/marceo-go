@@ -2,8 +2,9 @@ package main
 
 import (
 	"log"
-	"marceo/library/packs"
 	"os"
+
+	"github.com/kruceo/marceo-go/library/packs"
 )
 
 const version string = "0.4.2"

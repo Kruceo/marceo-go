@@ -1,3 +1,3 @@
-module marceo
+module github.com/kruceo/marceo-go
 
 go 1.22.1

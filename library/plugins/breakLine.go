@@ -1,7 +1,7 @@
 package plugins
 
 import (
-	"marceo/library/classes"
+	"github.com/kruceo/marceo-go/library/classes"
 
 	"regexp"
 )

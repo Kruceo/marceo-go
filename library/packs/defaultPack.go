@@ -1,8 +1,8 @@
 package packs
 
 import (
-	"marceo/library/classes"
-	"marceo/library/plugins"
+	"github.com/kruceo/marceo-go/library/classes"
+	"github.com/kruceo/marceo-go/library/plugins"
 )
 
 var DefaultPack = classes.NewPack(
