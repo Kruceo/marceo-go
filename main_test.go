@@ -9,10 +9,13 @@ import (
 )
 
 func TestVas(t *testing.T) {
-	var pack = packs.DefaultPack
-	file, err := os.ReadFile("./examples/big.md")
+	mk, err := os.ReadFile("ztest.md")
 	if err != nil {
 		log.Fatal(err)
 	}
-	println(pack.Parse(string(file)))
+	text := string(mk)
+
+	text = packs.DefaultPack.ParalelParse(text)
+	
+	println(text)
 }

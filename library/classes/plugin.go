@@ -38,9 +38,8 @@ func NewPlugin(name string, regex regexp.Regexp, elHandler func(s string, c stri
 
 func (p *Plugin) SinalizeText(text string) string {
 
-	ntxt := strings.Clone(text)
+	var catched [][]string = p.Regex.FindAllStringSubmatch(text, -1)
 
-	var catched [][]string = p.Regex.FindAllStringSubmatch(ntxt, -1)
 	for i := 0; i < len(catched); i++ {
 		full := catched[i][0]
 		start := catched[i][1]
@@ -55,30 +54,29 @@ func (p *Plugin) SinalizeText(text string) string {
 			tokenizedContent = token + token
 		}
 
-		ntxt = regexp.MustCompile(regexp.QuoteMeta(full)).ReplaceAllLiteralString(ntxt, tokenizedContent)
+		text = regexp.MustCompile(regexp.QuoteMeta(full)).ReplaceAllLiteralString(text, tokenizedContent)
 	}
-	return ntxt
+	return text
 }
 
 func (p *Plugin) ReplaceText(text string) string {
-	ntxt := strings.Clone(text)
 	for key, val := range p.mem {
 		regExp := regexp.MustCompile("(?s)(" + regexp.QuoteMeta(key) + ")(.*?)(" + regexp.QuoteMeta(key) + ")")
-		keyMatch := regExp.FindStringSubmatch(ntxt)
+		keyMatch := regExp.FindStringSubmatch(text)
 		if len(keyMatch) < 4 {
 			continue
 		}
 
 		if p.PluginOptions.HideContent {
 			el := p.Handler(val[1], val[2], val[3])
-			ntxt = strings.ReplaceAll(ntxt, keyMatch[0], el)
+			text = strings.ReplaceAll(text, keyMatch[0], el)
 
 		} else {
 			el := p.Handler(val[1], keyMatch[2], val[3])
-			ntxt = strings.ReplaceAll(ntxt, keyMatch[0], el)
+			text = strings.ReplaceAll(text, keyMatch[0], el)
 		}
 
 	}
-	return ntxt
+	return text
 
 }

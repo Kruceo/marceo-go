@@ -1,8 +1,9 @@
 package plugins
 
 import (
-	"github.com/kruceo/marceo-go/library/classes"
 	"regexp"
+
+	"github.com/kruceo/marceo-go/library/classes"
 )
 
 var codeLineRegex *regexp.Regexp = regexp.MustCompile("(`)" + `(.+?)` + "(`)")

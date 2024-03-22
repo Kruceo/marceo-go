@@ -2,6 +2,6 @@
 .bkp
 .vite
 .vscode
-marceo
-ztest.html
+marceo-go
+ztest.*
 *.sh
