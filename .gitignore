@@ -5,3 +5,6 @@
 marceo-go
 ztest.*
 *.sh
+*.json
+z*.sh
+res*.html

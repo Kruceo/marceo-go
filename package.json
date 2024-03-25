@@ -1,8 +1,0 @@
-{
-  "name": "name",
-  "description": "description",
-  "authors": "author",
-  "version": "0.6.3",
-  "main": "pathToMain",
-  "dependencies": {}
-}

@@ -9,9 +9,15 @@ import (
 
 var imageRegex *regexp.Regexp = regexp.MustCompile(`(!\[)` + `(.+?)` + `(\]\(.+?\))`)
 var imageHandler func(s, c, e string) string = func(s, c, e string) string {
-	url, _ := strings.CutPrefix(e, `](`)
-	url, _ = strings.CutSuffix(url, ")")
-	return "<image src=\"" + url + "\" title=\"" + c + "\"/>"
+	rawurl, _ := strings.CutPrefix(e, `](`)
+	rawurl, _ = strings.CutSuffix(rawurl, ")")
+	splitedUrl := strings.Split(rawurl, " ")
+	url := splitedUrl[0]
+	alt := c
+	if len(splitedUrl) > 1 {
+		alt = splitedUrl[1]
+	}
+	return "<image src=\"" + url + "\" title=\"" + c + "\" alt=\"" + alt + "\"/>"
 }
 
 var Image = classes.NewPlugin("image", *imageRegex, imageHandler, classes.PluginOptions{HideContent: true})
