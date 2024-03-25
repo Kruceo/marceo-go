@@ -12,7 +12,7 @@ type Pack struct {
 }
 
 func (p Pack) Parse(text string) string {
-	newText := "\n" + text + "\n"
+	newText := "\n\n" + text + "\n\n"
 
 	for i := 0; i < len(p.plugins); i++ {
 		newText = p.plugins[i].SinalizeText(newText)
@@ -25,16 +25,16 @@ func (p Pack) Parse(text string) string {
 	return newText
 }
 
-var lineBlockReg regexp.Regexp = *regexp.MustCompile(`(#)+ .*?`)
+var lineBlockReg regexp.Regexp = *regexp.MustCompile(`((#)+ .*?)|(^_(_)+_$)`)
 
 func (p Pack) ParalelParse(text string) string {
 	parts := []string{}
 	partsAdded := 0
 	acum := ""
 	splited := strings.Split(text, "\n")
-	for _, v := range splited {
+	for i, v := range splited {
 
-		if partsAdded > 200 {
+		if partsAdded > 200 || i >= len(splited) {
 			if lineBlockReg.MatchString(v) {
 
 				parts = append(parts, acum)

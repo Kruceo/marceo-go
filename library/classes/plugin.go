@@ -54,7 +54,8 @@ func (p *Plugin) SinalizeText(text string) string {
 			tokenizedContent = token + token
 		}
 
-		text = regexp.MustCompile(regexp.QuoteMeta(full)).ReplaceAllLiteralString(text, tokenizedContent)
+		text = strings.Replace(text, full, "\n"+tokenizedContent+"\n", 1)
+
 	}
 	return text
 }
@@ -77,6 +78,8 @@ func (p *Plugin) ReplaceText(text string) string {
 		}
 
 	}
+	//clean mem
+	p.mem = make(map[string][]string)
 	return text
 
 }

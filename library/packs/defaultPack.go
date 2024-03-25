@@ -8,6 +8,8 @@ import (
 var DefaultPack = classes.NewPack(
 	plugins.CodeLine,
 	plugins.CodeBlock,
+	plugins.Image,
+	plugins.List,
 	plugins.Header6,
 	plugins.Header5,
 	plugins.Header4,
@@ -19,7 +21,6 @@ var DefaultPack = classes.NewPack(
 	plugins.Italic,
 	plugins.Italic2,
 	plugins.Anchor,
-	plugins.List,
 	plugins.Table,
 	plugins.Strike,
 	plugins.NumList,
