@@ -8,3 +8,4 @@ ztest.*
 *.json
 z*.sh
 res*.html
+benchs

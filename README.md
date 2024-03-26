@@ -110,3 +110,20 @@ func main() {
 
 
 ## Benchmarks
+
+### Benchmark from 26/03/2023 - v0.6.4
+
+The benchmark was run with the `-p` option for `parallelism`.
+
+|Total Words|Markdown Words        |Execution Time |
+|-----------|----------------------|---------------|
+|70         |50                    |4<sub>ms</sub> |
+|734        |500                   |8<sub>ms</sub> |
+|6470       |5000                  |57<sub>ms</sub>|
+
+
+### Testing Machine
+
+|OS|KERNEL|CPU|MEM|STO|
+|----|----|----|----|---|
+|Arch Linux|Linux 6.7.4-arch1-1|Intel® Core™ i3-1005G1|8,0 GiB|NVME 1200 <sub>mb/s</sub> R&W|
